@@ -2,6 +2,8 @@
 
 This code is a companion to the book, OPAQUE: Secure Passwords Never Leave Your Device.
 
+![Book Cover](assets/opaque-cover.png)
+
 The book and this code demonstrates the OPAQUE password-derived asymmetric key exchange.
 
 OPAQUE is a way for users to type their username and password to log into a website, but then log in without sending their password across the Internet.
