@@ -38,15 +38,9 @@ export const encryptMessage = (
   sharedTx: Uint8Array
 ): EncryptMessageResult => {
   // pick a random nonce
-  const nonce = sodium.randombytes_buf(
-    sodium.crypto_aead_xchacha20poly1305_ietf_NPUBBYTES
-  );
-  const additionData = "";
-  // encrypt the message
-  const encryptedMessage = sodium.crypto_aead_xchacha20poly1305_ietf_encrypt(
+  const nonce = sodium.randombytes_buf(sodium.crypto_secretbox_NONCEBYTES);
+  const encryptedMessage = sodium.crypto_secretbox_easy(
     message,
-    additionData,
-    null,
     nonce,
     sharedTx
   );
@@ -58,12 +52,8 @@ export const decryptMessage = (
   nonce: Uint8Array,
   sharedRx: Uint8Array
 ): string => {
-  const additionalData = "";
-  // decrypt data
-  const decryptedData = sodium.crypto_aead_xchacha20poly1305_ietf_decrypt(
-    null,
+  const decryptedData = sodium.crypto_secretbox_open_easy(
     encryptedMessage,
-    additionalData,
     nonce,
     sharedRx
   );
