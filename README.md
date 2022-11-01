@@ -1,6 +1,6 @@
 # OPAQUE
 
-This code is a companion to the book, XXXXX.
+This code is a companion to the book, OPAQUE: Secure Passwords Never Leave Your Device.
 
 The book and this code demonstrates the OPAQUE password-derived asymmetric key exchange.
 
